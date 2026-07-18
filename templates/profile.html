@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow p-5">
+
+        <div class="text-center">
+
+            <h2>👤 My Profile</h2>
+
+            <hr>
+
+            <h4>Welcome, {{ request.user.username }}</h4>
+
+            <p>Email : {{ request.user.email }}</p>
+
+        </div>
+
+        <div class="row mt-5 text-center">
+
+            <div class="col-md-4 mb-3">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <h5>🎟 Total Bookings</h5>
+
+                        <h2 class="text-primary">
+                            {{ total_bookings }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <h5>❤️ Wishlist</h5>
+
+                        <h2 class="text-danger">
+                            {{ wishlist_count }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <h5>⭐ Reviews</h5>
+
+                        <h2 class="text-warning">
+                            {{ reviews_count }}
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a href="{% url 'booking_history' %}"
+               class="btn btn-primary me-2">
+
+                My Bookings
+
+            </a>
+
+            <a href="{% url 'wishlist' %}"
+               class="btn btn-danger me-2">
+
+                Wishlist
+
+            </a>
+
+            <a href="{% url 'logout' %}"
+               class="btn btn-dark">
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

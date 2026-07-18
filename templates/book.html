@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 text-center">
+
+    <h2 class="mb-4">Select Your Seats</h2>
+
+    <div class="screen mb-5">
+        <div class="bg-secondary text-white p-2 rounded">
+            SCREEN
+        </div>
+    </div>
+
+    <form action="{% url 'checkout' %}" method="get">
+
+        <input type="hidden" name="movie_id" value="{{ show_id }}">
+        <input type="hidden" name="selected_seats" id="selectedSeats">
+
+        <div class="row justify-content-center">
+
+            {% for seat in seats %}
+
+            <div class="col-2 col-md-1 mb-3">
+
+                {% if seat in booked_seats %}
+
+                    <input
+                        type="checkbox"
+                        class="btn-check"
+                        id="{{ seat }}"
+                        disabled>
+
+                    <label class="btn btn-danger w-100"
+                           for="{{ seat }}">
+                        {{ seat }}
+                    </label>
+
+                {% else %}
+
+                    <input
+                        type="checkbox"
+                        class="btn-check seat-checkbox"
+                        id="{{ seat }}"
+                        value="{{ seat }}"
+                        autocomplete="off">
+
+                    <label class="btn btn-outline-success w-100"
+                           for="{{ seat }}">
+                        {{ seat }}
+                    </label>
+
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <button type="submit" class="btn btn-danger btn-lg mt-4">
+            Continue
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+const checkboxes = document.querySelectorAll(".seat-checkbox");
+const hiddenInput = document.getElementById("selectedSeats");
+
+checkboxes.forEach(box => {
+
+    box.addEventListener("change", () => {
+
+        let selected = [];
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                selected.push(cb.value);
+            }
+        });
+
+        hiddenInput.value = selected.join(",");
+
+    });
+
+});
+</script>
+
+{% endblock %}

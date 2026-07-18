@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">
+        🎟 My Bookings
+    </h2>
+
+    {% if bookings %}
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover shadow">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th>Movie</th>
+                    <th>Customer</th>
+                    <th>Email</th>
+                    <th>Seats</th>
+                    <th>Booked On</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for booking in bookings %}
+
+                <tr>
+
+                    <td>{{ booking.movie.title }}</td>
+
+                    <td>{{ booking.customer_name }}</td>
+
+                    <td>{{ booking.email }}</td>
+
+                    <td>{{ booking.seats }}</td>
+
+                    <td>{{ booking.booked_at|date:"d M Y, h:i A" }}</td>
+
+                    <td>
+
+    <a href="{% url 'cancel_booking' booking.id %}"
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Are you sure you want to cancel this booking?');">
+
+        ❌ Cancel
+
+    </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-info text-center">
+        No bookings found.
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

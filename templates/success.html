@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 mb-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-header bg-success text-white text-center py-4">
+
+                    <h1>✅ Payment Successful</h1>
+
+                    <p class="mb-0">
+                        Thank you for booking with MovieVerse
+                    </p>
+
+                </div>
+
+                <div class="card-body p-5">
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+
+                            <h3 class="mb-4">
+                                🎬 {{ movie.title }}
+                            </h3>
+
+                            <table class="table">
+
+                                <tr>
+                                    <th>Customer</th>
+                                    <td>{{ booking.customer_name }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ booking.email }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Seats</th>
+                                    <td>{{ seats }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Amount</th>
+                                    <td class="text-success fw-bold">
+                                        ₹{{ amount }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <td>{{ booking_id }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Payment ID</th>
+                                    <td>{{ payment_id }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Status</th>
+                                    <td class="text-success">
+                                        ✅ Confirmed
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-4 text-center">
+
+                            <h5 class="mb-3">
+                                Ticket QR
+                            </h5>
+
+                            <img src="/media/{{ qr_path }}"
+                                 class="img-fluid border rounded p-2">
+
+                        </div>
+
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="text-center">
+
+                        <a href="{% url 'booking_history' %}"
+                           class="btn btn-primary btn-lg me-2">
+
+                            📖 My Bookings
+
+                        </a>
+
+                        <a href="{% url 'home' %}"
+                           class="btn btn-success btn-lg">
+
+                            🏠 Home
+
+                        </a>
+
+
+                        <a href="{% url 'download_ticket' booking.id %}"
+                            class="btn btn-danger btn-lg ms-2">
+
+                            ⬇ Download Ticket
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

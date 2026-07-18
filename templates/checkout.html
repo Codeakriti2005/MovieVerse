@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4">
+
+        <h2 class="text-center mb-4">Booking Details</h2>
+
+        <form action="{% url 'payment' %}" method="post">
+
+            {% csrf_token %}
+
+            <input type="hidden" name="movie_id" value="{{ movie_id }}">
+            <input type="hidden" name="seats" value="{{ selected_seats }}">
+            <input type="hidden" name="total_amount" value="{{ total_amount }}">
+
+            <div class="mb-3">
+                <label class="form-label">Selected Seats</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    value="{{ selected_seats }}"
+                    readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Total Amount</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    value="₹{{ total_amount }}"
+                    readonly>
+            </div>
+
+            <button class="btn btn-success btn-lg w-100">
+                💳 Continue to Payment
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
