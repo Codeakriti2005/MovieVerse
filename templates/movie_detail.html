@@ -8,13 +8,13 @@
     <div class="row">
 
         <!-- Movie Poster -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-5 text-center mb-4">
             <img src="{{ movie.image.url }}"
                  class="img-fluid rounded shadow">
         </div>
 
         <!-- Movie Details -->
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-7">
 
             <h1 class="fw-bold">{{ movie.title }}</h1>
 
@@ -39,7 +39,7 @@
             </p>
 
             <a href="{% url 'shows' movie.id %}"
-               class="btn btn-danger btn-lg mt-3">
+               class="btn btn-danger btn-lg mt-3 d-block d-md-inline-block w-100">
                 🎟 Book Tickets
             </a>
 
@@ -47,11 +47,11 @@
                 {% if movie.trailer %}
             <a href="{{ movie.trailer }}"
                 target="_blank"
-                class="btn btn-outline-dark btn-lg">
+                class="btn btn-outline-dark btn-lg d-block d-md-inline-block w-100">
                 ▶ Watch Trailer
             </a>
         {% else %}
-                <button class="btn btn-outline-secondary btn-lg" disabled>
+                <button class="btn btn-outline-secondary btn-lg d-block d-md-inline-block w-100" disabled>
                     Trailer Not Available
                 </button>
         {% endif %}
@@ -73,7 +73,7 @@
 
                 {% for actor in casts %}
 
-                <div class="col-lg-3 col-md-4 col-6 text-center mb-4">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 text-center mb-4">
 
                     <img src="{{ actor.image.url }}"
                          class="rounded-circle shadow"
@@ -164,7 +164,7 @@
 
             </div>
 
-            <button class="btn btn-danger">
+            <button class="btn btn-danger w-100">
 
                 Submit Review
 

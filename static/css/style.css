@@ -340,3 +340,196 @@ background:red !important;
     background:#28a745;
     color:white;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+.search-form{
+    width:50%;
+}
+
+.navbar-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.location{
+    font-weight:600;
+    margin-right:15px;
+}
+
+@media (max-width:991px){
+
+    /* Navbar */
+
+    .navbar{
+        height:auto;
+        padding:12px 0;
+    }
+
+    .search-form{
+        width:100%;
+        margin:15px 0;
+    }
+
+    .search-form input{
+        font-size:14px;
+    }
+
+    .navbar-right{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+        margin-top:15px;
+    }
+
+    .navbar-right .btn{
+        width:100%;
+    }
+
+    .location{
+        text-align:center;
+        margin:0;
+    }
+
+    /* Category Bar */
+
+    .category-bar .container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .left-links,
+    .right-links{
+        margin:8px 0;
+    }
+
+    .category-bar a{
+        display:inline-block;
+        margin:5px;
+    }
+
+    /* Banner */
+
+    .banner-image{
+        height:220px;
+        object-fit:cover;
+    }
+
+    /* Movie Cards */
+
+    .movie-img{
+        height:250px;
+    }
+
+    .premiere-img{
+        height:250px;
+    }
+
+    /* Footer */
+
+    .footer-links a{
+        display:block;
+        margin:8px 0;
+    }
+
+    .social-icons a{
+        margin:0 8px;
+    }
+
+    /* Movie Detail */
+
+    .movie-detail img{
+        margin-bottom:25px;
+    }
+
+    .movie-detail h1{
+        font-size:28px;
+    }
+
+    /* Cast */
+
+    .cast-img{
+        width:100px;
+        height:100px;
+    }
+
+    /* Seats */
+
+    .seat-container{
+
+        grid-template-columns:repeat(4,60px);
+
+        gap:12px;
+
+    }
+
+    .seat-btn{
+
+        height:50px;
+
+    }
+
+}
+
+/* ================= HOME RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+    .movie-img{
+        height:220px;
+    }
+
+    .premiere-img{
+        height:230px;
+    }
+
+    .event-img{
+        border-radius:10px;
+    }
+
+    .rating{
+        font-size:11px;
+        padding:4px 8px;
+    }
+
+    .wishlist{
+        width:35px;
+        height:35px;
+        font-size:18px;
+    }
+
+    .book-btn{
+        font-size:14px;
+        padding:8px;
+    }
+
+    h3{
+        font-size:22px;
+    }
+
+}
+
+/* ================= MOVIE DETAIL RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+    .img-fluid{
+        width:85%;
+        display:block;
+        margin:auto;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .btn-lg{
+        width:100%;
+        margin-bottom:10px;
+    }
+
+}
